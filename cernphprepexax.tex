@@ -1,0 +1,237 @@
+\documentclass{cernphprep}
+\usepackage{xcolor,pict2e,curve2e}
+\begin{document}
+\begin{titlepage}
+\PHnumber{2005--49}
+\PHdate{30 February 2005}
+\title{Test-beam performance of a tracking TRD prototype}
+
+\begin{abstract}
+Each paper should be preceded by a short abstract of not more 
+than 150~words, which should be written as a single paragraph 
+and should not contain references.
+\end{abstract}
+
+\vfill
+
+\begin{Authlist}
+J.T.~Shank, J.S.~Whitaker
+\Instfoot{a1}{Boston University, Boston, Mass., USA.}
+V.A.~Polychronakos,  V.~Radeka,  D.~Stephani
+\Instfoot{a2}{Brookhaven National Laboratory, Upton, NY, USA.}
+H.~Beker,  R.K.~Bock,  M.~Botlo,  L.~DiCiaccio\Aref{c}, 
+M.~Koratzinos,  A.~Lopez\Aref{*}
+\Instfoot{a3}{CERN, Geneva, Switzerland.}
+W.J.~Willis
+\Instfoot{a4}{Columbia University, New York, NY, USA.}
+T.~Akesson
+\Instfoot{a5}{Lund University, Lund, Sweden.}
+V.~Chernyatin,  B.~Dolgoshein,  P.~Nevski
+\Instfoot{a6}{Moscow Physical Engineering Institute, Moscow, USSR.}
+\end{Authlist}
+\Collaboration{Our collaboration}
+\vfill
+\Submitted{(Submitted to some important Journal)}
+\Conference{To be presented at the conference in ...}
+\Note{NOTE: not yet final}
+\Dedication{Dedicated to AAA}
+\Anotfoot{c}{Univ. di Roma II, `Tor Vergata', Rome, Italy.}
+\Anotfoot{*}{On leave from Fac. de Ciencias F\'\i sicas,
+Univ. Complutense, Madrid, Spain.}
+\ShortAuthor{J.T.~Shank \emph{et al.}}
+\end{titlepage}
+
+\section{Introduction}
+
+The biological effect of radiation depends on the quality of 
+the radiation as well as on the amount of energy absorbed. Evidence 
+suggests that this quality dependence is primarily caused by 
+the differences in rates of energy loss~\cite{Raby1966,Dupont1961}. 
+The general criteria that have been used are:
+
+\begin{enumerate}
+\item[i)]
+      to terminate the iteration when the residue between iterated 
+      and experiment values is of the order of experimental 
+      errors~\cite{Raby1966,Appleman1959,vanBerg1965,Bryant1985,Allen1977};
+\item[ii)]
+      to terminate when the smoothest solution has been obtained.
+\end{enumerate}
+
+For an overall appreciation of the work carried out in this field, 
+see Refs.~\cite{Keil1969} and \cite{Guignard1983}.
+
+\section{Examples of figures and tables}
+
+\subsection{Including tabular material}
+
+Smith tabulated the average values of mean linear energy transfer
+(LET) obtained by the different methods used in
+Ref.~\cite{Appleman1959}, and these are reproduced in
+Table~\ref{tab:LET}. Note that a table is produced with \LaTeX's
+\texttt{table} environment, and that the caption should be positioned
+\emph{above} the tabular material.
+
+\begin{table}[!h]
+\begin{center}
+\caption{Calculated mean LET values in water (keV/mm)}
+\label{tab:LET}
+\begin{tabular}{|p{6cm}|c|c|}
+\hline
+Radiation                    & Smith$^{a)}$    & Jones\\
+\hline
+1 MeV \ensuremath{\alpha}    &                  &      \\
+200 kVp X-rays total         & 3.25             & 1.79 \\
+\hline
+200 kVp X-rays (primary)     & 2.60             & 1.48 \\
+\hline
+\multicolumn{3}{@{}l}{$^{a)}$ \footnotesize J. Smith, Rad. Res. 1 (1956) 234}
+\end{tabular}
+\end{center}
+\end{table}
+
+Table~\ref{tab:LET} is reproduced from the publication mentioned
+earlier and shows the good agreement between predictions and
+calculations.  Comparison should be made with the decay curves shown
+in Figs.~6 and 7 of Ref.~\cite{vanBerg1965}, and further information
+is given in Section~\ref{sec:curvature} and Appendix~\ref{sec:app}.
+
+\subsection{Including figures}
+
+Figures are defined with the \texttt{figure} environment. The source
+for producing the figure can be included inline, as in
+Fig.~\ref{fig:sincos} which shows how the $\sin$ and $\cos$ functions
+evolve with the help of the \texttt{picture} environment and the
+\texttt{pict2e} and \texttt{curve2e} packages.
+
+\begin{figure}[ht]
+\begin{center}
+\setlength\unitlength{1cm}
+\begin{picture}(6.6,3)(0,-1.5)
+  \put(0,-1.5){\vector(0,3){3}}
+  \put(0,0){\Vector(6.6,0)}
+  \put(6.3,0.1){$\theta$}
+  \put(0.05,-0.3){$0$}% 0
+  \put(2.9,-0.3){$\pi$}% pi
+  \put(6.23,-0.3){$2\pi$}% 2 pi
+  \color{red}\put(0.1,1.1){$\cos\theta$}
+  \Curve(0,1)<1,0>(1.570796,0)<1,-1>%
+  (3.1415924,-1)<1,0>(6.283185,1)<1,0>%
+  \color{blue}\put(1.65,1.1){$\sin\theta$}
+  \Curve(0,0)<1,1>(1.570796,1)<1,0>%
+  (4.712389,-1)<1,0>(6.283185,0)<1,1>%
+\end{picture}
+\end{center}
+\caption{The $\sin$ and $\cos$ functions}
+\label{fig:sincos}
+\end{figure}
+
+Figures can also be imported, in EPS or PDF, PNG and JPEG format,
+depending on whether you run \texttt{latex} or
+\texttt{pdflatex}. Figure~\ref{fig:extpict} show how to include a
+picture with the \verb|\includegraphics| command of \LaTeX's
+\texttt{graphicx} package.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.5\linewidth]{picture}
+\caption{Including a figure from an external file}
+\label{fig:extpict}
+\end{figure}
+
+\subsection{Examples of equations}
+\label{sec:curvature}
+
+Equation~\ref{eq:a1} representing a straight line at an angle 
+$\theta$, is 
+\begin{equation}
+n^k(h)u=\lambda h t g q_k \label{eq:a1}  
+\end{equation}
+and
+\begin{equation}
+n^k(h) =k h \frac{k}{32}  \label{eq:a2}  
+\end{equation}
+where:
+\begin{itemize}
+\item $\lambda$ is the distance between two consecutive sweep lines,
+\item $u$ is the least count.
+\end{itemize}
+
+We consider a parabola, the tangent of which is parallel to the 
+vertical axis of the main matrix. A sufficiently good approximation 
+to a parabola [see Eq.~\ref{eq:a3}] drawn inside the matrix can be given 
+by the following formula:
+
+\begin{equation}
+n_q = \alpha q^2 \quad \alpha=\frac{\lambda^2}{3 Ru} \label{eq:a3}  
+\end{equation}
+where $R$ is the radius of curvature. We have the following 
+relationship:
+\begin{equation}
+n_q + \mu_q \text{ with } \mu_q = \alpha (2q + 1).   \label{eq:a4}  
+\end{equation}
+
+\section{Conclusion}
+
+The theoretical considerations presented have been confirmed 
+by their close agreement with the results of practical experiments. 
+An account of the earlier work carried out in this field can 
+be found in the bibliography.
+
+It is expected that in the next few years many new results will 
+be published, since a significant number of new experiments have 
+recently been launched.
+
+\section*{Acknowledgements}
+
+We wish to thank C. Brown for his most enlightening comments 
+on this topic.
+
+\begin{thebibliography}{99}
+\bibitem{Raby1966}
+  J.M. Raby, Biophysical aspects of radiation quality, International 
+  Atomic EnergyAgency, Technical Reports Series No. 58 (1966).
+\bibitem{Dupont1961}
+  J.-P. Dupont, Proc. Int. Conf. on Radiation Hazards, Columbia, 
+  1960 (Academic Press Inc., New York, 1961), Vol. II, p. 396.
+\bibitem{Appleman1959}
+  H. Appleman et al., J. Med. Biol. \textbf{8} (1959) 911.
+\bibitem{vanBerg1965}
+  E. van Berg, D. Johnson and J. Smith, Rad. Res. \textbf{5} (1965) 
+  215.
+\bibitem{Bryant1985}
+  P. Bryant and S. Newman (eds.), The generation of high fields, 
+  CAS--ECFA--INFN Workshop, Frascati, 1984. (ECFA 85/91, CERN 85/07, 
+  CERN, Geneva, 1985).
+\bibitem{Allen1977}
+  M.A. Allen et al., IEEE Trans. Nucl. Sci. \textbf{NS--24} (1977) 
+  1780.
+\bibitem{Keil1969}
+  E. Keil, Nucl. Instrum. Methods \textbf{100} (1969) 419.
+\bibitem{Guignard1983}
+  G. Guignard, CERN LEP--TH/83--38 (1983).
+\end{thebibliography}
+
+\section*{Bibliography}
+
+I.C. Percival and D. Richards, Introduction to dynamics (Cambridge 
+University Press, 1982).\newline
+L. Garrido (ed.), Dynamical systems and chaos: Proc. Sitges 1982, 
+Lecture Notes in Physics No.~179 (Springer, Berlin, 1983).
+
+\appendix
+\section{Construction on a flat site}
+\label{sec:app}
+
+\subsection{General considerations}
+
+Following on ECFA recommendation, the project described in this 
+report is based on the assumption that the machine is built close 
+to the present CERN site, and has been taken into account in 
+the cost estimate.
+
+\subsection{Effects on the construction}
+
+The general layout of the machine would be very similar to that 
+shown in the main body of the report.
+\end{document}

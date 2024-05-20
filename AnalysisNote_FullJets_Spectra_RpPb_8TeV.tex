@@ -1,0 +1,178 @@
+
+%\documentclass[11pt]{elsart}
+\documentclass[ALICE]{ALICE_analysis_notes}
+
+% Use the option doublespacing or reviewcopy to obtain double line spacing
+%\documentclass[doublespacing]{elsart}
+\usepackage[american]{babel}
+\usepackage[utf8x]{inputenc}
+%\usepackage[colorlinks=true,bookmarksnumbered=true,bookmarksopen=true]{hyperref}
+%\usepackage{caption}
+%\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{floatrow}
+
+ \usepackage{graphicx}	
+ \usepackage{subfigure}
+ \usepackage{geometry}
+% %\geometry{a4paper,inner=28mm, outer=18mm, top=25mm, bottom=30mm,twoside}
+ \geometry{a4paper, inner=28mm, outer=18mm, top=25mm, bottom=29mm, headsep=10mm, footskip=12mm, twoside} 
+ \usepackage{amsmath}
+ \usepackage{amssymb}
+ \usepackage{mathcomp}
+ \usepackage{array}
+\usepackage{helvet}
+ \usepackage{color}
+ \usepackage{multicol}
+% 	\usepackage{hyperref}
+\usepackage[dvips]{epsfig}
+\hypersetup{
+    pdfauthor={Austin Schmier},     % author
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,          % color of internal links (change box color with linkbordercolor)
+    citecolor=black,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=blue           % color of external links
+}
+\usepackage[all]{hypcap}
+ \usepackage{listings}
+% \usepackage{cite}
+ \usepackage{acronym}
+ \usepackage{units}
+ \usepackage{lineno}
+\linenumbers
+%  \usepackage[numbers]{natbib}
+ \usepackage{ascii}
+ \usepackage{feynmf}
+\usepackage{dcolumn}
+\usepackage[point,rounding]{rccol}
+\usepackage{rotating}
+\usepackage{mathrsfs}
+
+\renewcommand*{\acsfont}[1]{{\color{black}#1}}
+\renewcommand*{\acffont}[1]{{\color{black}#1}}
+ \usepackage{booktabs}
+\setlength{\abovecaptionskip}{4pt plus 0pt minus 0pt}
+\setlength{\parskip}{0pt}
+
+\makeatletter
+\AtBeginDocument{%
+  \renewcommand*{\AC@hyperlink}[2]{%
+    \begingroup
+      \hypersetup{hidelinks}%
+      \hyperlink{#1}{#2}%
+    \endgroup
+  }%
+}
+\makeatother
+\PHnumber{ALICE-ANA-1330} 
+
+
+\renewcommand{\floatpagefraction}{.82}
+\renewcommand{\bottomfraction}{.95}
+\renewcommand{\topfraction}{.95}
+\renewcommand{\textfraction}{.04}
+\newcommand{\pT}{$p_{\mbox{\tiny T}}$\xspace}
+\newcommand{\pTHard}{$p_{\mbox{\tiny T,hard}}$\xspace}
+\newcommand{\sNN}{$\sqrt{s_{\mbox{\tiny NN}}}$\xspace}
+\newcommand{\s}{$\sqrt{s}$\xspace}
+\newcommand{\sF}{\s~=~7~TeV\xspace}
+\newcommand{\sM}{\s~=~2.76~TeV\xspace}
+\newcommand{\sL}{\s~=~0.9~TeV\xspace}
+\newcommand{\sNNF}{\sNN~=~2.76~TeV\xspace}
+\newcommand{\sNNMa}{\sNN~=~5.02~TeV\xspace}
+\newcommand{\mT}{$m_{\mbox{\tiny T}}$\xspace}
+\newcommand{\qT}{$q_{\mbox{\tiny T}}$\xspace}
+\newcommand{\xT}{$x_{\mbox{\tiny T}}$\xspace}
+\newcommand{\Pb}{{\mbox{Pb--Pb}}\xspace}
+\newcommand{\AACol}{{\mbox{A--A}}\xspace}
+\newcommand{\Au}{{\mbox{Au--Au}}\xspace}
+\newcommand{\pPb}{{\mbox{p--Pb}}\xspace}
+\newcommand{\pA}{{\mbox{p--A}}\xspace}
+\newcommand{\pp}{pp\xspace}
+\newcommand{\MeVc}{MeV/$c$\xspace}
+\newcommand{\GeVc}{GeV/$c$\xspace}
+\newcommand{\vtwo}{$\nu_2$\xspace}
+\newcommand{\vn}{$\nu_n$\xspace}
+% \newcommand{\pi0}{$\pi^0$\xspace}
+\newcommand{\mum}{$\mu$m\xspace}
+\newcommand{\dEdx}{$\mbox{d}E/\mbox{d}x$\xspace}
+\newcommand{\RConv}{R_{\mbox{\tiny conv}}}
+\newcommand{\ZConv}{Z_{\mbox{\tiny conv}}}
+\newcommand{\XConv}{X_{\mbox{\tiny conv}}}
+\newcommand{\YConv}{Y_{\mbox{\tiny conv}}}
+\newcommand{\PhiConv}{\phi_{\mbox{\tiny conv}}}
+\newcommand{\RSec}{R_{\mbox{\tiny sec}}}
+\newcommand{\ZSec}{Z_{\mbox{\tiny sec}}}
+\newcommand{\XSec}{X_{\mbox{\tiny sec}}}
+\newcommand{\YSec}{Y_{\mbox{\tiny sec}}}
+\newcommand{\PhiSec}{\phi_{\mbox{\tiny sec}}}
+\newcommand{\dcaZ}{$dca_z$\xspace}
+\newcommand{\pTtrack}{p_{\mbox{\tiny T},\mbox{\tiny track}}}
+\newcommand{\EtaToPi}{$\eta/\pi^0$\xspace}
+\newcommand{\Etat}{\eta_{\mbox{\tiny track, V0}}}
+\newcommand{\EtaV}{\eta_{\mbox{\tiny V0}}}
+\newcommand{\RpPb}{\texorpdfstring{$R_{\text{\tiny pPb}}$}\xspace\xspace}
+\newcommand{\RdAu}{\texorpdfstring{$R_{\text{\tiny dAu}}$}\xspace\xspace}
+\setlength{\textfloatsep}{1em}
+
+\begin{document}
+%\begin{frontmatter}
+%\begin{titlepage}
+%\KOMAoptions{footnotes=multiple}
+
+\title{Inclusive Jet \pT Spectrum and Nuclear Modification Factor\\ in pp Collisions at \s~=~8~TeV and p--Pb Collisions at \sNN~=~8.16~TeV in ALICE}
+\ShortTitle{ALICE-ANA-1330}
+
+
+\begin{Authlist}
+A.~Schmier \Iref{a1},
+C.~Nattrass \Iref{a1},
+F.~Bock\Iref{a2}, 
+M.~Fasel\Iref{a2},
+N.~Schmidt\Iref{a2},
+F.~Jonas\Iref{a2}\Iref{a3}\\
+for the ALICE Collaboration
+\end{Authlist}
+
+\ShortAuthor{ALICE Analysis Note ANA-1330}
+
+\Instfoot{a1}{University of Tennessee, Knoxville, Tennessee, United States}
+\Instfoot{a2}{Oak Ridge National Laboratory, Oak Ridge, Tennessee, United States}
+\Instfoot{a3}{University of Munster, Munster, Germany}
+
+\vspace{4cm}
+\begin{abstract}
+The differential cross-sections and nuclear modification factor are presented for fully reconstructed jets with R = 0.2 - 0.5 in \pp collisions at \s~=~8~TeV and jets R = 0.2 - 0.4 in \pPb collisions at \sNN~=~8.16~TeV. Cross-section ratios are shown between R = 0.2 jets and the other radii. The nuclear modification factor, R$_{pPb}$, is defined as the ratio of the yield in \pPb to \pp collisions, scaled by the number of binary nucleon-nucleon collisions. Comparisons are made to PYTHIA8 Monash and POWHEG+PYTHIA8. The \pp sample was collected with the ALICE detector in 2012, during run periods LHC12a - LHC12i. The \pPb sample was collected in 2016, during run periods LHC16r and LHC16s. The spectra analysis and subsequent analysis note sections were adapted from the methods used by Markus Fasel in his analysis at \s =~13~TeV \cite{anaNoteMFasel}.
+\end{abstract}
+
+% \begin{keyword}
+% \PACS 
+% \end{keyword}
+% \end{frontmatter}
+%\end{titlepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+\tableofcontents
+
+\include{introduction}
+\include{DataAnalysis}
+\include{jetXsections}
+\include{systematics}
+\include{results}
+
+
+
+\begin{appendix}
+
+\include{appendix}
+
+\end{appendix}
+
+\bibliographystyle{kp.bst}
+\bibliography{bibliography}
+
+\end{document}
+
+
