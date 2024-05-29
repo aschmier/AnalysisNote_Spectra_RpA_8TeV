@@ -1,0 +1,49 @@
+\section{Experimental Setup and Datasets} 
+\label{ch:SetupAndDatasets}
+
+The \pp data for all event triggers in this analysis were collected in 2012, during LHC run 1, while the \pPb data were collected in 2016, during LHC run 2. Out of this data, events were only selected for analysis if they met a certain set of criteria. The first steps include general cuts to exclude events from unwanted interactions such as background and pileup. These cuts include the following conditions:
+
+\begin{itemize}
+    \item V0 time information is used to remove events that produce an early signal in one side of the detector which come from beam-gas interactions.
+    \item Background events which leave many SPD clusters but very few tracklets are removed. 
+    \item In-bunch (and closest neighboring bunch) pileup is removed by identifying events with multiple primary vertices that have greater than 3 tracklets each, are at least 8 mm apart, and are within a 300 ns time window.
+    \item The V0 information is used to inspect the neighboring 10 bunch crossings for additional event activity outside the SPD integration window.
+    \item The reconstructed primary vertex is required to be within $\pm$10 cm of the center of the detector in the z-direction.
+    \item The vertex must have at least one SPD tracklet associated with it.
+\end{itemize}
+
+Runs, i.e. periods of time in which the detector was continuously active, were selected for use only if the EMCal was read out and the data in the EMCal were considered "good" based on quality control checks performed by the ALICE data preparation group. This analysis incorporated additional quality control checks specifically targeted toward jets. These checks include searches for strange, non-physical spectral shapes in individual runs due to trigger performance issues, scaling issues, and other anomalies. These checks were performed by comparing the spectra of individual runs to the average spectrum of all runs. If a run was found to have an obvious non-physical spectral shape or scale, it was removed from the analysis. Other checks included looking at the number of charged and neutral constituents in a jet, $\eta-\phi$ distribution of jets and particles within jets, cluster energy, and more, to ensure that all variables are all within reasonable limits. Only runs that were clear outliers were removed during this quality assurance process. In order to avoid biasing the dataset, runs that deviated only minimally or deviated due to low statistics were not cut. 
+
+The integrated luminosities ($\mathscr{L}_{\text{int}}$) for the \pp and \pPb datasets after downscale corrections can be found in Table~\ref{tab:dataset_lumi}. The luminosity is reported as the number of events per trigger divided by the reference cross-section. The reference cross-section from the V0AND minimum bias trigger was determined in a van-der-Meer scan to be 55.8 mb with an uncertainty of 2.6$\%$ in \pp~\cite{ALICE-PUBLIC-2017-002}. For \pPb it is averaged to be 2095 mb with an uncertainty of 1.9$\%$ based on van-der-Meer scans for the different beam orientations of p--Pb and Pb--p~\cite{ALICE-PUBLIC-2018-002}.
+
+\begin{table}[hbt!]
+  \centering
+  \caption{Integrated luminosities for the \pp and \pPb datasets with downscale corrections.}
+  \begin{tabular}{  m{2.4cm}  m{3cm} m{3cm}  }
+      \hline
+      System & Trigger Name & $\mathscr{L}_{\text{int}}  (\text{nb}^{-1})$ \\
+      \hline
+      \pp & INT7 & 0.968 \\
+          & EMC7 & 41.4 \\
+          & EJE & 588 \\ 
+      \hline
+      \pPb & INT7 & 7.35$\times 10^{-3}$ \\
+           & EJ2 & 6.57$\times 10^{-2}$ \\
+           & EJ1 & 1.34 \\ 
+      \hline
+  \end{tabular}
+  \label{tab:dataset_lumi}
+\end{table}
+
+This analysis uses both minimum bias and EMCal triggered data. For \pp, the minimum bias trigger covers the low jet-\pT range from 20 to 30 GeV/$c$, while the EMC7 and EJE triggers cover higher jet-\pT. These triggers cover 30 to 60 GeV/$c$ and over 60 GeV/$c$, respectively. For \pPb, the minimum bias trigger covers the range from 20 to 30 GeV/$c$, while two thresholds for the jet trigger, referred to as EJ2 and EJ1, cover the ranges 30 to 50 GeV/$c$ and over 50 GeV, respectively. The INT7 and EMC7 trigger classes contain only L0 triggers. For this data set, the INT7 trigger only requires simultaneous signals from both sides of the V0 detector. The EMC7 trigger requires a coincidence between the MB trigger and the L0 EMCal trigger. The other three classes are very similar, except for the energy threshold and patch size in the EMCal. The turn-on for the EMCal triggers determines the ranges in which the triggers are used. The EMCal requires a certain energy threshold in order to meet the trigger condition. The trigger may be used once an adequate trigger efficiency is reached. Above this threshold, efficiency curve becomes flat and is predictable. The trigger efficiencies for all EMCal triggers are characterized later in this chapter. 
+
+Detector corrections for \pp were obtained using a PYTHIA8~\cite{SJOSTRAND2015159} simulation generated at \s = 8 TeV. For the \pPb analysis, a special \pp-like PYTHIA8 production at \s = 8.16 TeV was generated. The negligible effect of the underlying \pPb event in high momentum jet events allowed the use of a \pp-like production for the determination of all necessary correction factors. Just as with real data, jet events in PYTHIA are rare, particularly at high momenta. PYTHIA provides the enhancement of the jet sample in what are referred to as Jet-Jet productions, which allow higher statistics for jet events without excessive CPU use and storage requirements. Theses events are generated with a minimum constraint on the momentum \pTHard of the hard scattering process.
+
+The jet transverse momentum spectra must be truncated at a certain \pT range in order to ensure accuracy of the measurement. The lower limit was selected based on the kinematic efficiency which is discussed in section~\ref{sec:kinEff}, while the upper limit was based on several criteria. First, the maximum allowed track and cluster \pT is varied. The momentum of the tracks and clusters must be cut at a certain limit in order to avoid non-physical objects and anomalies. This cut value is varied within reasonable limits, and at some point, the ratio of the variations to the standard cut value begins to diverge to greater than the statistical uncertainty of the measurement. Due to the large size of the uncertainties, it is not feasible to measure past this value. This divergence happens for all radii in \pp collisions for this dataset at 240 GeV/$c$, while the divergence in \pPb for this dataset occurs even later. The spectrum is ultimately truncated at high-\pT where unfolding no longer converges. The unfolding process is used to correct the spectrum for detector effects and is discussed in Section \ref{sec:unfolding}.
+
+\textcolor{red}{might need this stuff}
+The \pp data for all triggers in this analysis were collected in 2012, and include periods LHC12a - LHC12i. The \pPb data for all trigger in this analysis were collected in 2016, and include periods LHC16r and LHC16s. From these periods, runs were selected for use only if the EMCal was read out and the data in the EMCAL was considered "good" (see appendix \ref{sec:goodRuns} for runlists corresponding to each period). These criteria excluded periods LHC12e and LHC12g. LHC12a and LHC12b were used only for the minimum bias trigger and were thus excluded from the analysis. Table~\ref{table:dataset_lumi} shows the integrated luminosity for each trigger used for the analysis.
+
+Corrections from simulation were obtained using the production LHC16c2, a PYTHIA 8 simulation generated at \sNN = 8 TeV, using 20 bins of p$_T^{hard}$. The simulation was anchored to a number of runs in different periods in 2012, relative to the number of INT7 triggers in data.
+
+A detailed QA was done on each period in data, both for the entire period and run-wise, and comparisons to simulation were performed \cite{JIRATicket}.
